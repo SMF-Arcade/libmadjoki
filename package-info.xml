@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="package-info.xsl" type="text/xsl"?>
+<!DOCTYPE package-info SYSTEM "http://www.simplemachines.org/xml/package-info">
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	ATTENTION: If you are trying to install this manually, you should try
+	the package manager.  If it will not work for you, please take a look
+	at the following for information on this format:
+		http://mods.simplemachines.org/docs/manual-install.php
+
+================================================================================
+
+	This script can be used to make your package do many different things.
+	The following documentation should be available on the format of this
+	file and the things you can do with it:
+		http://mods.simplemachines.org/docs/package-info.php
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
+	<id>Niko:LibMadjoki</id>
+	<name>LibMadjoki</name>
+	<version>0.1</version>
+	<type>modification</type>
+
+	<install for="2.0, 2.0.1">
+		<readme parsebbc="true">readme.txt</readme>
+		
+		<create-dir name="Madjoki" destination="$sourcedir" />
+		<require-file name="Autoload.php" destination="$sourcedir/Madjoki" />
+		<require-file name="Database.php" destination="$sourcedir/Madjoki" />
+		<require-file name="Main.php" destination="$sourcedir/Madjoki" />
+		<require-file name="SendFile.php" destination="$sourcedir/Madjoki" />
+		<require-file name="URLBuilder.php" destination="$sourcedir/Madjoki" />
+		
+		<require-dir name="Form" destination="$sourcedir/Madjoki" />
+		<require-dir name="Install" destination="$sourcedir/Madjoki" />
+		<require-file name="libmadjoki.css" destination="$themedir/css" />
+		
+		<modification format="xml" type="file">install.xml</modification>
+	</install>
+
+	<uninstall>
+		<modification format="xml" type="file" reverse="true">install.xml</modification>
+		<remove-file name="$themedir/css/libmadjoki.css" />
+		<remove-dir name="$sourcedir/Madjoki" />
+	</uninstall>
+</package-info>

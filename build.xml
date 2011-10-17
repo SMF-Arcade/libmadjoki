@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="LibMadjoki" default="dist">
+	<property name="repository" value="libmadjoki" override="true" />
+	<property name="branch" value="trunk" override="true" />
+    <property name="package" value="${phing.project.name}" override="true" />
+	<property name="version" value="0.0" override="yes" />
+	
+	<property name="builddir" value="./temp" />
+	<property name="outdir" value="./dist" />
+	<property name="docdir" value="./temp" />
+
+    <target name="prepare">
+		<delete dir="${builddir}" />
+        <mkdir dir="${builddir}" />
+		<mkdir dir="${outdir}" />
+    </target>
+	
+    <target name="build" depends="prepare">
+		<copy todir="${builddir}" >
+			<fileset dir="./">
+				<include name="**" />
+				<exclude name="build.*" />
+			</fileset>
+		</copy>	
+    </target>
+
+    <target name="dist" depends="build">
+        <echo msg="Creating archive..." />
+
+        <tar destfile="${outdir}/${package}-${version}.tar.gz" compression="gzip">
+            <fileset dir="${builddir}">
+                <include name="**" />
+            </fileset>
+        </tar>
+		
+		<delete dir="${builddir}" />
+    </target>
+	
+    <target name="git" depends="build">
+        <echo msg="Creating archive..." />
+
+        <tar destfile="${outdir}/${package}-${version}-${githash}.tar.gz" compression="gzip">
+            <fileset dir="${builddir}">
+                <include name="**" />
+            </fileset>
+        </tar>
+		
+		<delete dir="${builddir}" />
+    </target>
+	
+    <target name="documentation" depends="build">
+		<delete dir="${doc_output}" />
+		<mkdir dir="${doc_output}" />
+		
+		<phpdoc title="API Documentation"
+			destdir="${doc_output}"
+			sourcecode="false"
+			output="HTML:Smarty:PHP">
+            <fileset dir="${builddir}">
+                <include name="**" />
+            </fileset>
+		</phpdoc>
+    </target>
+</project>

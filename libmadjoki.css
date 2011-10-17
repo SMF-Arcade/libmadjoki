@@ -1,0 +1,39 @@
+.lmform
+{
+}
+.lmform dl
+{
+	clear: right;
+	overflow: auto;
+	margin: 0 0 10px 0;
+	padding: 0;
+}
+.lmform  dl dt
+{
+	width: 48%;
+	float: left;
+	margin: 0 0 10px 0;
+	padding: 0;
+	clear: both;
+}
+.lmform dl dt.windowbg
+{
+	width: 98%;
+	float: left;
+	margin: 0 0 3px 0;
+	padding: 0 0 5px 0;
+	clear: both;
+}
+.lmform dl dd
+{
+	width: 48%;
+	float: right;
+	margin: 0 0 3px 0;
+	padding: 0;
+}
+.lmform dl dd.full
+{
+	float: none;
+	margin: auto;
+	clear: both;
+}
