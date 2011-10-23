@@ -68,7 +68,6 @@ abstract class Madjoki_Form_Database extends Madjoki_Form_Base
 	 */
 	final public function __construct($id = null, $is_fatal = true, $is_post = null, $extra = null)
 	{
-		
 		if ($is_post == null)
 			$this->is_post = !empty($_POST['save']);
 		else
