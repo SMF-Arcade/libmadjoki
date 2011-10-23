@@ -21,7 +21,6 @@ class Madjoki_Autoload
 		
 		if (substr($class_name, 0, 7) == 'Madjoki')
 		{
-			
 			$class_file = str_replace('_', '/', $class_name);
 	
 			if (file_exists($sourcedir . '/' . $class_file . '.php'))

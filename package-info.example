@@ -19,13 +19,14 @@
 <package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
 	<id>Niko:LibMadjoki</id>
 	<name>LibMadjoki</name>
-	<version>0.1</version>
+	<version>0.01</version>
 	<type>modification</type>
 
 	<install for="2.0, 2.0.1">
 		<readme parsebbc="true">readme.txt</readme>
 		
 		<create-dir name="Madjoki" destination="$sourcedir" />
+		<require-file name="ApiVersion.php" destination="$sourcedir/Madjoki" />
 		<require-file name="Autoload.php" destination="$sourcedir/Madjoki" />
 		<require-file name="Database.php" destination="$sourcedir/Madjoki" />
 		<require-file name="Main.php" destination="$sourcedir/Madjoki" />

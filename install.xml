@@ -19,6 +19,14 @@
 	<!-- This information needs to be the same as that in the package-info.xml. -->
 	<id>Niko:LibMadjoki</id>
 	<version>0.1</version>
+	
+	<!-- This is to prevent overwriting incompatible version -->
+	<file name="$sourcedir/Madjoki/ApiVersion.php" error="skip">
+		<operation>
+			<search position="replace"><![CDATA[define('libmadjoki_api_version', 0.01);]]></search>
+			<add><![CDATA[define('libmadjoki_api_version', 0.01);]]></add>
+		</operation>
+	</file>
 
 	<!-- Board directory -->
 	<file name="$boarddir/index.php">
